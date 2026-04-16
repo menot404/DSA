@@ -168,7 +168,7 @@ void permute(int* a, int l, int r) {
 
 If we plot the most common Big O notation examples, we get the following graph:
 
-![Big O complexity chart — from O(1) Best to O(n!) Worst](big-o-complexity-chart.png)
+![Big O complexity chart — from O(1) Best to O(n!) Worst](mypic.png)
 
 ---
 
@@ -182,7 +182,6 @@ If we plot the most common Big O notation examples, we get the following graph:
 ---
 
 ## Algorithmic Examples of Runtime Analysis
-![alt text](big-o-image.webp) ![alt text](mypic.png)
 | Type        | Notation   | Example Algorithms                                                                 |
 |:------------|:----------:|:-----------------------------------------------------------------------------------|
 | Logarithmic | O(log n)   | Binary Search                                                                      |
