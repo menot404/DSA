@@ -1,4 +1,3 @@
-````markdown
 # Asymptotic Analysis
 *Source: GeeksforGeeks — Last Updated: 9 Apr, 2026*
 
@@ -51,4 +50,3 @@ Running times for this example:
 - It **ignores constant factors**, so two algorithms with the same asymptotic complexity (e.g., `1000 × n log n` vs `2 × n log n`) cannot be directly compared for practical speed.
 - It focuses on **large input sizes**, but in real applications, these inputs may never occur.
 - An algorithm that is asymptotically slower can perform better for specific inputs, so practical performance may lead to choosing it over a theoretically faster algorithm.
-````
