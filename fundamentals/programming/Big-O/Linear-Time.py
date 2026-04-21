@@ -10,9 +10,19 @@ For example, consider an algorithm that traverses through an array to find a spe
 """
 
 """
-arr: array of size n
-key: the element we want to find
-n: the size of the array
+Searches for a specific key in an array.
+Arguments:
+----------
+arr : list
+    The input array in which to search for the key.
+n : int
+    The size of the input array.
+key : int
+    The element to search for in the array.
+Returns:
+--------
+tuple
+    A tuple containing the index and value of the found element, or -1 if the element
 """
 def find_element(arr, n, key):
     for i in range(0, n):
