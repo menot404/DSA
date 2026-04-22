@@ -18,7 +18,7 @@ $$f(n) \leq c \cdot g(n) \quad \text{for all } n \geq n_0$$
 
 In simpler terms, `f(n)` is `O(g(n))` if `f(n)` grows no faster than `c·g(n)` for all `n >= n₀`, where `c` and `n₀` are constants.
 
-![Big O Analysis — f(n) is asymptotically bounded above by g(n) up to constant factor c](big-o-image.webp)
+![Big O Analysis — f(n) is asymptotically bounded above by g(n) up to constant factor c](./images/big-o-image.webp)
 
 ---
 
@@ -168,7 +168,7 @@ void permute(int* a, int l, int r) {
 
 If we plot the most common Big O notation examples, we get the following graph:
 
-![Big O complexity chart — from O(1) Best to O(n!) Worst](mypic.png)
+![Big O complexity chart — from O(1) Best to O(n!) Worst](./images/mypic.png)
 
 ---
 
