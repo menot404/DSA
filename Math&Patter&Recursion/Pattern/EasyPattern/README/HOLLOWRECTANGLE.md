@@ -34,4 +34,14 @@ def print_rectangle(rows, columns):
 
         # Move to the next line
         print()
+
+def main():
+    rows = 6
+    columns = 20
+    print_rectangle(rows, columns)
+
+
+if __name__ == "__main__":
+    main()
+
 ```

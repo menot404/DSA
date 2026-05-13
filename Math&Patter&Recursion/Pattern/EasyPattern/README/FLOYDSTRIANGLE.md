@@ -38,6 +38,13 @@ def printfloydtriangle(n):
             print(val, end=" ")
             val += 1
         print()
+
+def main():
+    printfloydtriangle(6)
+
+
+if __name__ == "__main__":
+    main()
 ```
 
 **Output:**
