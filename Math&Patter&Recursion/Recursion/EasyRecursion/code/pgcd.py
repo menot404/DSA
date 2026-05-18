@@ -122,7 +122,10 @@ The maximum number of recursive calls is proportional to the number of steps tak
 "
 """
 
-def gcdOptimized(a, b):
+def gcdOptimized1(a, b):
+    return a if b == 0 else gcdOptimized1(b, a % b)
+
+def gcdOptimized2(a, b):
     # Everything divides 0
     if (a == 0 or b == 0):
         return max(a, b)
@@ -133,8 +136,10 @@ def gcdOptimized(a, b):
     
     # Recursive call for a % b and b % a returns the GCD of a % b and b % a, which is then returned as the GCD of a and b
     if a > b:
-        return gcdOptimized(a % b, b)
-    return gcdOptimized(a, b % a)
+        return gcdOptimized2(a % b, b)
+    return gcdOptimized2(a, b % a)
+
+
 
 import math
 
@@ -149,5 +154,5 @@ if __name__ == "__main__":
     print(f"Using Iterative Method - The GCD of {a} and {b} is: {gcdIterative(a, b)}")
     print(f"Euclidean Algorithm using Subtraction - The GCD of 20 and 28 is: {gcdSubstraction(a=20, b=28)}")
     print(f"Modified Euclidean Algorithm using Subtraction by Checking Divisibility - The GCD of 92 and 36 is: {gcdSubChDiv(a=92, b=36)}")
-    print(f"Optimized Euclidean Algorithm by Checking Remainder - The GCD of 48 and 18 is: {gcdOptimized(a=20, b=28)}")
+    print(f"Optimized Euclidean Algorithm by Checking Remainder - The GCD of 48 and 18 is: {gcdOptimized2(a=48, b=18)}")
     print(f"Optimized Euclidean Algorithm using math.gcd - The GCD of 48 and 18 is: {gcdOptimized1(a=48, b=18)}")
