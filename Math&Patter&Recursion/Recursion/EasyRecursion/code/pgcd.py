@@ -12,6 +12,9 @@
 " The idea is to find the minimum of the two numbers and find its highest factor which is also a factor of the other number. "
 """
 
+import math
+
+
 def gcdIterative(a, b):
 
     # Everything divides O
@@ -99,6 +102,46 @@ def gcdSubChDiv(a, b):
         return gcdSubChDiv(a , b - a)
 
 
+## Method 4: Optimized Euclidean Algorithm by Checking Remainder
+"""
+#  Time Complexity: O(log(min(a,b)))
+# Space complexity: O(log(min(a,b)))
+
+"
+Instead of the Euclidean algorithm by subtraction, a better approach can be used. We don't perform subtraction here. 
+we continuously divide the bigger number by the smaller number. More can be learned about this efficient solution by using the modulo operator in Euclidean algorithm.
+
+# Time Complexity: O(log(min(a,b)))
+
+Each recursive call reduces the size of the numbers significantly using the modulo operation (a % b), which shrinks the input faster than subtraction.
+The worst-case scenario for the number of steps occurs when the inputs are consecutive Fibonacci numbers, like (21, 13), which maximizes the number of recursive calls.
+Since Fibonacci numbers grow exponentially, and the number of steps increases linearly with their position, the time complexity becomes logarithmic in terms of the smaller number — O(log(min(a, b))).
+
+# Auxiliary Space: O(log(min(a,b)))
+The maximum number of recursive calls is proportional to the number of steps taken to reduce the input to zero, which is O(log(min(a, b))) in the worst case.
+"
+"""
+
+def gcdOptimized(a, b):
+    # Everything divides 0
+    if (a == 0 or b == 0):
+        return max(a, b)
+    
+    # Base case
+    if a == b:
+        return a
+    
+    # Recursive call for a % b and b % a returns the GCD of a % b and b % a, which is then returned as the GCD of a and b
+    if a > b:
+        return gcdOptimized(a % b, b)
+    return gcdOptimized(a, b % a)
+
+import math
+
+def gcdOptimized1(a, b):
+    return math.gcd(a, b)
+
+
 # Driver code
 if __name__ == "__main__":
     a = 0
@@ -106,3 +149,5 @@ if __name__ == "__main__":
     print(f"Using Iterative Method - The GCD of {a} and {b} is: {gcdIterative(a, b)}")
     print(f"Euclidean Algorithm using Subtraction - The GCD of 20 and 28 is: {gcdSubstraction(a=20, b=28)}")
     print(f"Modified Euclidean Algorithm using Subtraction by Checking Divisibility - The GCD of 92 and 36 is: {gcdSubChDiv(a=92, b=36)}")
+    print(f"Optimized Euclidean Algorithm by Checking Remainder - The GCD of 48 and 18 is: {gcdOptimized(a=20, b=28)}")
+    print(f"Optimized Euclidean Algorithm using math.gcd - The GCD of 48 and 18 is: {gcdOptimized1(a=48, b=18)}")
