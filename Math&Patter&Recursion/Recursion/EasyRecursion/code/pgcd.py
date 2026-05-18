@@ -140,10 +140,15 @@ def gcdOptimized2(a, b):
     return gcdOptimized2(a, b % a)
 
 
+## Method 5: Using Built-in Functio
+"""
+#   Time Complexity: O(log(min(a, b)))
+#   Space complexity: O(1)
+"""
 
 import math
 
-def gcdOptimized1(a, b):
+def gcdBuiltFunc(a, b):
     return math.gcd(a, b)
 
 
@@ -154,5 +159,6 @@ if __name__ == "__main__":
     print(f"Using Iterative Method - The GCD of {a} and {b} is: {gcdIterative(a, b)}")
     print(f"Euclidean Algorithm using Subtraction - The GCD of 20 and 28 is: {gcdSubstraction(a=20, b=28)}")
     print(f"Modified Euclidean Algorithm using Subtraction by Checking Divisibility - The GCD of 92 and 36 is: {gcdSubChDiv(a=92, b=36)}")
+    print(f"Optimized Euclidean Algorithm by Checking Remainder - The GCD of 48 and 18 is: {gcdOptimized1(a=48, b=18)}")
     print(f"Optimized Euclidean Algorithm by Checking Remainder - The GCD of 48 and 18 is: {gcdOptimized2(a=48, b=18)}")
-    print(f"Optimized Euclidean Algorithm using math.gcd - The GCD of 48 and 18 is: {gcdOptimized1(a=48, b=18)}")
+    print(f"Built-in Function - The GCD of 48 and 18 is: {gcdBuiltFunc(a=48, b=18)}")
