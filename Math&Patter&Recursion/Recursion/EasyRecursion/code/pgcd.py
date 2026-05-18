@@ -54,10 +54,55 @@ def gcdSubstraction(a, b):
     return gcdSubstraction(a, b - a)
 
 
+## Method 3: Modified Euclidean Algorithm using Subtraction by Checking Divisibility
+"""
+#  Time Complexity: O(min(a, b))
+# Space complexity: O(min(a, b))
+
+"
+Consider a = 98 and b = 56
+
+a = 98, b = 56:
+
+a > b so put a = a-b and b remains same. So  a = 98-56 = 42  & b= 56. 
+a = 42, b = 56:
+
+Since b > a, we check if b%a=0. Since answer is no, we proceed further. 
+Now b>a. So b = b-a and a remains same. So b = 56-42 = 14 & a= 42. 
+a = 42, b = 14:
+
+Since a>b, we check if a%b=0. Now the answer is yes. 
+So we print smaller among a and b as H.C.F . i.e. 42 is  3 times of 14.
+So HCF is 14.
+"
+"""
+
+def gcdSubChDiv(a, b):
+    # Everyting divides 0
+    if (a == 0 or b == 0):
+        return max(a, b)
+    
+    # Base case
+    if b == a :
+        return a
+    
+    # a is greater than b
+    if a > b:
+        if a % b == 0:
+            return b
+        return gcdSubChDiv(a - b, b)
+
+    # b is greater than a
+    if b > a:
+        if b % a == 0:
+            return a
+        return gcdSubChDiv(a , b - a)
+
 
 # Driver code
 if __name__ == "__main__":
     a = 0
     b = 12
     print(f"Using Iterative Method - The GCD of {a} and {b} is: {gcdIterative(a, b)}")
-    print(f"Euclidean Algorithm using Subtraction - The GCD of {a} and {b} is: {gcdSubstraction(a=20, b=28)}")
+    print(f"Euclidean Algorithm using Subtraction - The GCD of 20 and 28 is: {gcdSubstraction(a=20, b=28)}")
+    print(f"Modified Euclidean Algorithm using Subtraction by Checking Divisibility - The GCD of 92 and 36 is: {gcdSubChDiv(a=92, b=36)}")
