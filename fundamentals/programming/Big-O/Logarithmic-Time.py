@@ -17,8 +17,8 @@ x: the element we want to find
 mid: the middle index of the array
 """
 def binary_search(arr, l, r, x):
-    if r >= 1:
-        mid = l + (r - 1) // 2
+    if r >= l:
+        mid = l + (r - l) // 2
         if arr[mid] == x:
             return mid
         if arr[mid] > x:
