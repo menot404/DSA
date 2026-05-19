@@ -78,6 +78,34 @@ def powerDivideAndConquer(b, e):
         # If exponent is odd: b^e = b * (b^(e/2))^2
         return b * temp * temp
 
+
+## Method 4: Using Using Inbuilt Functions
+"""
+#  Time Complexity: O(log e)
+# Space complexity: O(1)
+
+"
+The idea is to use inbuilt functions or operators provided by programming languages to calculate be efficiently:
+
+    ==>C++: pow(b, e)
+    ==>Python: pow(b, e) or b ** e
+    ==>Java: Math.pow(b, e)
+    ==>C#: Math.Pow(b, e)
+    ==>JavaScript: Math.pow(b, e) or b ** e
+
+These methods are optimized for speed and handle negative exponents and floating-point numbers automatically.
+"
+"""
+
+def powerInbuilt(b, e):
+    # using (**) operator
+    # return b**e
+
+    # Return type of pow()
+    # function is double
+    return pow(b, e) # or b ** e
+
+
 # Driver code
 if __name__ == "__main__":
     b = 3.0
