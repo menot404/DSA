@@ -26,10 +26,29 @@ def powerIterative(b, e):
     return pow
 
 
+## Method 2: Using Recursion
+"""
+#  Time Complexity: O(e)
+# Space complexity: O(e)
+
+" The idea is to recursively multiply b exactly e times. To do so, define a recursive function that return b, if e > 0 else returns 1."
+"""
+def powerRecursive(b, e):
+    # Base Case: powerRecursive(e, 0)
+    if e == 0: 
+        return 1
+    
+    # If e is negative, return the reciprocal of the result of powerRecursive(b, -e)
+    if e < 0:
+        return 1 / powerRecursive(b, -e)
+    
+    return b * powerRecursive(b, e - 1) # Recursive call for e - 1 returns the result of b raised to the power of e - 1, which is then multiplied by b to get the final result of b raised to the power of e.
 
 # Driver code
 if __name__ == "__main__":
     b = 3.0
     e = 5
-    pow = powerIterative(b, e)
-    print(f"Using Iteration - {b} raised to the power {e} is: {pow}")
+    pow1 = powerIterative(b, e)
+    print(f"Using Iteration - {b} raised to the power {e} is: {pow1}")
+    pow2 = powerRecursive(b, e)
+    print(f"Using Recursion - {b} raised to the power {e} is: {pow2}")
