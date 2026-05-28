@@ -43,6 +43,13 @@ def isSortedRecursive(arr):
     n = len(arr)
     return isSortedHelper(arr, n)
 
+# Method 3: Using Built-in Methods (Applicable for C++ and Python Only)
+"""
+The idea behind here is we use built-in methods in STL of C++ and Python to check if an array is sorted or not.    # O(n) Time
+    # O(1) Space
+"""
+def isSortedBuiltIn(arr):
+    return arr == sorted(arr)
 
 # Driver Code
 if __name__ == "__main__":
@@ -59,3 +66,9 @@ if __name__ == "__main__":
         print("Method 2: Recursive approach - The array is sorted.")
     else:
         print("Method 2: Recursive approach - The array is not sorted.")
+
+    # Check if the array is sorted using built-in methods
+    if isSortedBuiltIn(arr):
+        print("Method 3: Built-in Methods - The array is sorted.")
+    else:
+        print("Method 3: Built-in Methods - The array is not sorted.")
