@@ -61,7 +61,7 @@ print(*arr)
 
 **Output:**
 
-![Adjacent multiplication naive approach output in terminal](adjacent-multiplication-naive-output.png)
+![Adjacent multiplication naive approach output in terminal](../Illustrations/adjacent-multiplication-naive-output.png)
 
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
@@ -118,7 +118,7 @@ print(*arr)
 
 **Output:**
 
-![Adjacent multiplication expected approach output in terminal](adjacent-multiplication-expected-output.png)
+![Adjacent multiplication expected approach output in terminal](../Illustrations/adjacent-multiplication-expected-output.png)
 
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
