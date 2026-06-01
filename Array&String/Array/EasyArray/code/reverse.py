@@ -32,7 +32,7 @@ def reverseArrayTemp(arr):
 
 # Method 2: Using Two Pointers
 """
-TThe idea is to maintain two pointers: left and right, such that left points at the beginning of the array and right points to the end of the array.
+The idea is to maintain two pointers: left and right, such that left points at the beginning of the array and right points to the end of the array.
 While left pointer is less than the right pointer, swap the elements at these two positions. After each swap, increment the left pointer and decrement the right pointer to move towards the center of array. This will swap all the elements in the first half with their corresponding element in the second half.
     # O(n) Complexity Time
     # O(1) Complexity Space
@@ -57,6 +57,28 @@ def reverseArray2Pointers(arr):
         # Decrement right pointer
         right -= 1
 
+
+
+# Method 3: Using Single Pointer
+"""
+The idea is to iterate over the first half of the array and swap each element with its corresponding element from the end. 
+So, while iterating over the first half, any element at index i is swapped with the element at index (n - i - 1).
+
+    # O(n) Complexity Time
+    # O(1) Complexity Space
+"""
+def reverseArraySinglePointer(arr3):
+    # Size Array
+    n = len(arr3)
+    
+    # Iterate over the first half
+    # and for every index i, swap
+    # arr[i] with arr[n - i - 1]
+    for i in range(n // 2):
+        temp = arr3[i]
+        arr3[i] = arr3[n - i - 1]
+        arr3[n - i - 1] = temp
+
 # Driver Code
 if __name__ == "__main__":
 
@@ -73,7 +95,16 @@ if __name__ == "__main__":
     arr2 = [8, 2, 12, 6, 24, 4, 14]
     print(f"Original array: {arr2}")
     reverseArray2Pointers(arr2)
-    print("[Expected Approach - 1] Using Two Pointers - O(n) Time and O(1) Space: ", end="")
+    print("[Expected Approach - 1] Using Two Pointers - Array Reverse: ", end="")
     for i in range(len(arr2)):
         print(arr2[i], end=" ")
+    print()
+
+    # Method 3: Using Single Pointer
+    arr3 = [16, 4, 24, 12, 48, 8, 28]
+    print(f"Original array: {arr3}")
+    reverseArraySinglePointer(arr3)
+    print("[Expected Approach - 1] Using Single Pointers - Array Reverse: ", end="")
+    for i in range(len(arr3)):
+        print(arr3[i], end=" ")
     print()
