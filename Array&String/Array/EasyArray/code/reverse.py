@@ -79,6 +79,17 @@ def reverseArraySinglePointer(arr3):
         arr3[i] = arr3[n - i - 1]
         arr3[n - i - 1] = temp
 
+
+
+# Method 4: Using Inbuilt Methods
+"""
+he idea is to use inbuilt reverse methods available across different languages.
+    # O(n) Complexity Time
+    # O(1) Complexity Space
+"""
+def reverseArrayInbuilt(arr):
+    arr.reverse()
+
 # Driver Code
 if __name__ == "__main__":
 
@@ -98,7 +109,7 @@ if __name__ == "__main__":
     print("[Expected Approach - 1] Using Two Pointers - Array Reverse: ", end="")
     for i in range(len(arr2)):
         print(arr2[i], end=" ")
-    print()
+    print("\n")
 
     # Method 3: Using Single Pointer
     arr3 = [16, 4, 24, 12, 48, 8, 28]
@@ -107,4 +118,12 @@ if __name__ == "__main__":
     print("[Expected Approach - 1] Using Single Pointers - Array Reverse: ", end="")
     for i in range(len(arr3)):
         print(arr3[i], end=" ")
-    print()
+    print("\n")
+
+    # Method 4: Using Inbuilt Methods
+
+    arr = [7, 1, 11, 5, 23, 3, 13]
+    print(f"Original array: {arr}")
+    reverseArrayInbuilt(arr)
+    print("Using Inbuilt Methods - Array Reverse: ", end="")
+    print(" ".join(map(str, arr)))
