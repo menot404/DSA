@@ -61,7 +61,7 @@ If the starting index of a cycle is i, then the next elements will be present at
 So for any index i, we know that element at index i will move to index (i + d) % n. Now, we can simply rotate all elements in the same cycle without interfering with any other cycle.
 
     # O(n) Complexity Time
-    # O(n) Complexity Space
+    # O(1) Complexity Space
 """
 from math import gcd
 def rotateArrJuggling(arr, d):
@@ -90,6 +90,28 @@ def rotateArrJuggling(arr, d):
             if currIdx == i:
                 break
 
+
+# Method 4: The Reversal Algorithm
+"""
+The idea is based on the observation that if we right rotate the array by d positions, the last d elements will be in the front and first (n - d) elements will be at the end. 
+
+    ==> First reverse all the elements of the array. 
+    ==> Then reverse first d elements.
+    ==> Finally, reverse last (n - d) elements to get the final rotated array.
+    # O(n) Complexity Time
+    # O(1) Complexity Space
+"""
+def rotateArrReversalAlgo(arr, d):
+    n = len(arr)
+    d %= n # Handle cases where d is greater than n
+
+    # Reverse the entire array
+    arr.reverse()
+    # Reverse the first d element
+    arr[:d] = reversed(arr[:d])
+    # Reverse the remaining n - d elements
+    arr[d:] = reversed(arr[d:])
+
 # Driver Code
 if __name__ == "__main__":
     arr = [1, 2, 3, 4, 5, 6, 7]
@@ -111,4 +133,10 @@ if __name__ == "__main__":
     arr = [1, 2, 3, 4, 5, 6, 7]  # Reset the array
     rotateArrJuggling(arr, d=d)
     print(f"Array after rotating by {d} positions (using juggling algorithm): ", end="")
+    print(" ".join(map(str, arr)))
+
+    ########## Method 4: Using Reversal Algorithm ##################
+    arr = [1, 2, 3, 4, 5, 6, 7]  # Reset the array
+    rotateArrReversalAlgo(arr, d=d)
+    print(f"Array after rotating by {d} positions (using reversal algorithm): ", end="")
     print(" ".join(map(str, arr)))
