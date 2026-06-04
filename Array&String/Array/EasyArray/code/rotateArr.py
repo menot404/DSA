@@ -50,6 +50,46 @@ def rotateArrTempArray(arr, d):
     for i in range(n):
         arr[i] = temp[i]
 
+
+
+# Method 3:  Juggling Algorithm
+
+"""
+The idea behind Juggling Algorithm is that instead of moving one by one, we can use the concept of cycles.
+Each cycle is independent and represents a group of elements that will shift among themselves during the rotation. 
+If the starting index of a cycle is i, then the next elements will be present at indices (i + d) % n, (i + 2d) % n, (i + 3d) % n ... and so on till we reach back to index i. 
+So for any index i, we know that element at index i will move to index (i + d) % n. Now, we can simply rotate all elements in the same cycle without interfering with any other cycle.
+
+    # O(n) Complexity Time
+    # O(n) Complexity Space
+"""
+from math import gcd
+def rotateArrJuggling(arr, d):
+    n = len(arr)
+    d %= n # Handle cases where d is greater than n
+    cycles = gcd(n, d) # Calculate the number of cycles
+
+    # Process each cycle
+    for i in range(cycles):
+        # Start index of current cycle
+        currIdx = i
+        currEle = arr[currIdx]
+
+        # Rotate elements till we reach the start of cycles
+        while True:
+            nextIdx = (currIdx + d) % n
+            nextEle = arr[nextIdx]
+
+            # Update the element at next index with the current element
+            arr[nextIdx] = currEle
+            # Update the current element to next element
+            currEle = nextEle
+            # Move to the next index
+            currIdx = nextIdx
+
+            if currIdx == i:
+                break
+
 # Driver Code
 if __name__ == "__main__":
     arr = [1, 2, 3, 4, 5, 6, 7]
@@ -65,4 +105,10 @@ if __name__ == "__main__":
     arr = [1, 2, 3, 4, 5, 6, 7]  # Reset the array
     rotateArrTempArray(arr, d)
     print(f"Array after rotating by {d} positions (using temp array): ", end="")
+    print(" ".join(map(str, arr)))
+
+    ########## Method 3: Using Juggling Algorithm ##################
+    arr = [1, 2, 3, 4, 5, 6, 7]  # Reset the array
+    rotateArrJuggling(arr, d=d)
+    print(f"Array after rotating by {d} positions (using juggling algorithm): ", end="")
     print(" ".join(map(str, arr)))
