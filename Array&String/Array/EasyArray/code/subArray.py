@@ -13,6 +13,8 @@ Once we have the starting and ending indices, we need an innermost loop to print
     ==> Outermost Loop: Picks starting index of current subarray
     ==> Middle Loop: Picks ending index of current subarray
     ==> Innermost Loop: Prints the subarray from the starting index to the ending index
+    # O(n²) Time
+    # O(n) Space
 """
 def subArrayIterative(arr):
     n = len(arr)
@@ -22,8 +24,7 @@ def subArrayIterative(arr):
         # Pick ending point
         for j in range(i, n):
             # Print subarray between current starting and ending points
-            for k in range(i, j + 1):
-                print(arr[k], end=" ")
+            print(arr[i:j+1], end=" ")
             print() # New line after each subarray
 
 # Method 2: Recursive Approach
@@ -32,7 +33,9 @@ We use two pointers start and end to maintain the starting and ending point of t
 
     ==> Stop if we have reached the end of the array
     ==> Increment the end index if start has become greater than end
-    ==> Print the subarray from index start to end and increment the starting index
+    ==> Print the subarray from index start to end and increment the starting index.
+    # O(n^2) Time
+    # O(n) Space
 """
 def subArrayRecursive(arr, start, end):
     #Stop if we have end point and start from 0
@@ -55,5 +58,6 @@ if __name__ == "__main__":
     print("Iterative Approach -- All Non-empty Subarray: ")
     subArrayIterative(arr)
     print()
+    arr = [1, 2, 3] # Update Array
     print("Recursive Approach -- All Non-empty Subarray: ")
     subArrayRecursive(arr, 0, 0)
