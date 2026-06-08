@@ -26,8 +26,34 @@ def subArrayIterative(arr):
                 print(arr[k], end=" ")
             print() # New line after each subarray
 
+# Method 2: Recursive Approach
+"""
+We use two pointers start and end to maintain the starting and ending point of the array and follow the steps given below: 
+
+    ==> Stop if we have reached the end of the array
+    ==> Increment the end index if start has become greater than end
+    ==> Print the subarray from index start to end and increment the starting index
+"""
+def subArrayRecursive(arr, start, end):
+    #Stop if we have end point and start from 0
+    if end == len(arr):
+        return
+
+    # Increment the end point and end of the array
+    elif start > end:
+        return subArrayRecursive(arr, 0, end=end+1)
+
+    # Print the subarray and increment starting point
+    else:
+        print(arr[start:end+1])
+        return subArrayRecursive(arr, start=start+1, end=end)
+
+
 # Drive Code
 if __name__ == "__main__":
     arr = [1, 2, 3, 4]
-    print("All Non-empty Subarray: ")
+    print("Iterative Approach -- All Non-empty Subarray: ")
     subArrayIterative(arr)
+    print()
+    print("Recursive Approach -- All Non-empty Subarray: ")
+    subArrayRecursive(arr, 0, 0)
