@@ -11,7 +11,7 @@ The maximum difference between the selling price and buying price between every 
     # O(n^2) Time
     # O(1) Space
 """
-def maxProfit(prices):
+def maxProfitNaive(prices):
     n = len(prices)
     res = 0
     # Explore all possible ways to buy and sell stock
@@ -20,7 +20,31 @@ def maxProfit(prices):
             res = max(res, prices[j] - prices[i])
     return res
 
+
+# Method 2: [Expected Approach] One Traversal Solution
+"""
+In order to maximize the profit, we need to minimize the cost price and maximize the selling price. 
+So at every step, we keep track of the minimum buy price of stock encountered so far. 
+For every price, we subtract with the minimum so far and if we get more profit than the current result, we update the result.
+    # O(n) Complexity Time
+    # O(1) Complexity Space
+"""
+def maxProfitExpected(prices):
+    n = len(prices)
+    minSofar = prices[0]
+    res = 0
+
+    for i in range(1, n):
+        # Update the minimum value seen so far
+        minSofar = min(minSofar, prices[i])
+        # Update result if we get more profit
+        res = max(res, prices[i] - minSofar)
+    return res
+
 # Driver Code
 if __name__ == "__main__":
     prices = [7, 10, 1, 3, 6, 9, 2]
-    print(maxProfit(prices=prices))
+    print(f"[Naive Approach] By exploring all possible pairs --- Profit: {maxProfitNaive(prices=prices)}")
+
+    prices = [18, 9, 6, 8, 12, 23, 1]
+    print(f"[Expected Approach] One Traversal Solution --- Profit: {maxProfitExpected(prices)}")
