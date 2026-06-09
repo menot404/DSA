@@ -40,7 +40,7 @@ def rearrange(arr):
         posIdx += 1
         i += 1
     # Append remaining negative numbers (if any)
-    while negIdx < len(pos):
+    while negIdx < len(neg):
             arr[i] = neg[negIdx]
             negIdx += 1
             i += 1
